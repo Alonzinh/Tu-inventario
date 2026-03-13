@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario de Liz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- Cursor personalizado -->
+<div id="cursor">💗</div>
+
+<!-- Barra de progreso -->
+<div id="barra-amor"></div>
+
+<!-- Canvas de estrellas -->
+<canvas id="canvas-estrellas"></canvas>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="viernes-badge">✨ Eres la primera persona que dedico un Viernes 13 ✨</div>
+  <h1 id="titulo-principal">Feliz Viernes 13</h1>
+  <p class="subtitulo-hero">
+    Dicen que este día trae mala suerte…<br>
+    pero mi suerte empezó el día que te conocí.
+  </p>
+
+  <div id="bloque-contador">
+    <div class="unidad-tiempo">
+      <span class="numero-tiempo" id="cnt-dias">00</span>
+      <span class="label-tiempo">días</span>
+    </div>
+    <div class="unidad-tiempo">
+      <span class="numero-tiempo" id="cnt-horas">00</span>
+      <span class="label-tiempo">horas</span>
+    </div>
+    <div class="unidad-tiempo">
+      <span class="numero-tiempo" id="cnt-minutos">00</span>
+      <span class="label-tiempo">minutos</span>
+    </div>
+    <div class="unidad-tiempo">
+      <span class="numero-tiempo" id="cnt-segundos">20</span>
+      <span class="label-tiempo">segundos</span>
+    </div>
+  </div>
+
+  <button id="btn-secreto" onclick="revelarSecreto()">
+    ✉️ Haz click si quieres saber un secreto
+  </button>
+</section>
+
+<!-- Divisor -->
+<div class="divisor fade-in-scroll">
+  <div class="divisor-linea"></div>
+  <span style="font-size:20px">💕</span>
+  <div class="divisor-linea"></div>
+</div>
+
+<!-- ===== CARTAS ===== -->
+<section id="seccion-cartas">
+  <h2 class="titulo-seccion fade-in-scroll">Lo que eres para mí</h2>
+  <div class="grid-cartas fade-in-scroll">
+    <div class="carta">
+      <span class="carta-icono">🌙</span>
+      <h3 class="carta-titulo">Mi calma</h3>
+      <p class="carta-texto">En los días más caóticos, solo pensar en ti hace que todo tenga sentido. Eres el silencio bonito después de la tormenta.</p>
+    </div>
+    <div class="carta">
+      <span class="carta-icono">☀️</span>
+      <h3 class="carta-titulo">Mi alegría</h3>
+      <p class="carta-texto">Tu risa es lo más bonito que he escuchado. Cada vez que sonríes, el mundo entero brilla un poco más fuerte.</p>
+    </div>
+    <div class="carta">
+      <span class="carta-icono">🌊</span>
+      <h3 class="carta-titulo">Mi aventura</h3>
+      <p class="carta-texto">Contigo cada día es una nueva historia. Me enseñaste que el amor también es explorar, reír y perderse juntos.</p>
+    </div>
+    <div class="carta">
+      <span class="carta-icono">🔥</span>
+      <h3 class="carta-titulo">Mi fuerza</h3>
+      <p class="carta-texto">Cuando siento que no puedo más, recuerdo que te tengo. Y entonces encuentro fuerzas que no sabía que existían.</p>
+    </div>
+    <div class="carta">
+      <span class="carta-icono">🌸</span>
+      <h3 class="carta-titulo">Mi hogar</h3>
+      <p class="carta-texto">El hogar no es un lugar, es una persona. Y yo encontré el mío en tus brazos, en tu mirada, en tu voz.</p>
+    </div>
+    <div class="carta">
+      <span class="carta-icono">⭐</span>
+      <h3 class="carta-titulo">Mi todo</h3>
+      <p class="carta-texto">No exagero cuando digo que eres lo mejor que me ha pasado. Eres mi razón favorita para existir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Divisor -->
+<div class="divisor fade-in-scroll">
+  <div class="divisor-linea"></div>
+  <span style="font-size:20px">💌</span>
+  <div class="divisor-linea"></div>
+</div>
+
+<!-- ===== SOBRE CON MENSAJE ===== -->
+<section id="seccion-mensaje">
+  <h2 class="titulo-seccion fade-in-scroll">Un mensaje guardado para ti</h2>
+  <div id="sobre-envelope" onclick="abrirSobre()" class="fade-in-scroll">
+    <svg class="sobre-svg" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="116" height="86" rx="10" fill="rgba(255,77,109,0.15)" stroke="rgba(255,133,161,0.6)" stroke-width="1.5"/>
+      <polyline points="2,2 60,50 118,2" fill="none" stroke="rgba(255,133,161,0.8)" stroke-width="1.5"/>
+      <polyline points="2,88 40,50" fill="none" stroke="rgba(255,133,161,0.5)" stroke-width="1"/>
+      <polyline points="118,88 80,50" fill="none" stroke="rgba(255,133,161,0.5)" stroke-width="1"/>
+      <text x="60" y="75" text-anchor="middle" fill="rgba(255,179,198,0.7)" font-size="22">💌</text>
+    </svg>
+  </div>
+  <p style="font-size:13px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,133,161,0.5); margin-top:10px;" class="fade-in-scroll">
+    Toca el sobre para abrirlo
+  </p>
+  <div id="carta-mensaje">
+    <p class="mensaje-texto">
+      "Hoy, en este viernes que el mundo llama de mala suerte,<br>
+      yo solo puedo pensar en lo afortunado/a que soy.<br><br>
+      Porque tenerte es el mayor golpe de suerte<br>
+      que la vida me ha dado.<br><br>
+      Gracias por elegirme cada día.<br>
+      Gracias por quedarte.<br>
+      Gracias por ser tú."
+    </p>
+    <p class="firma">— Con todo mi amor ❤️</p>
+  </div>
+</section>
+
+<!-- Divisor -->
+<div class="divisor fade-in-scroll">
+  <div class="divisor-linea"></div>
+  <span style="font-size:20px">🌹</span>
+  <div class="divisor-linea"></div>
+</div>
+
+<!-- ===== RAZONES PARA AMARTE ===== -->
+<section id="seccion-razones">
+  <h2 class="titulo-seccion fade-in-scroll">Razones para amarte</h2>
+  <div class="fade-in-scroll">
+    <div id="numero-razon">01</div>
+    <p id="texto-razon">"Porque tu sonrisa ilumina hasta los días grises."</p>
+    <button id="btn-razon" onclick="siguienteRazon()">Ver siguiente razón →</button>
+  </div>
+</section>
+
+<!-- Divisor -->
+<div class="divisor fade-in-scroll">
+  <div class="divisor-linea"></div>
+  <span style="font-size:20px">💓</span>
+  <div class="divisor-linea"></div>
+</div>
+
+<!-- ===== PROMESA FINAL ===== -->
+<section id="seccion-promesa">
+  <span class="latido-corazon fade-in-scroll">❤️</span>
+  <h2 class="promesa-titulo fade-in-scroll" style="margin-top:30px;">Mi promesa para ti</h2>
+  <p class="promesa-texto fade-in-scroll">
+    Prometo estar contigo en cada viernes 13,<br>
+    en cada tormenta, en cada carcajada,<br>
+    en cada silencio y en cada amanecer.<br>
+    Hoy y siempre.
+  </p>
+  <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(22px,4vw,36px); color:var(--rosa-fuerte); opacity:0; animation: aparecer 1s ease 0.5s forwards;" class="fade-in-scroll">
+    Te amo más de lo que las palabras pueden decir. 💕
+  </p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
